@@ -117,5 +117,29 @@ public class MusicOrganizer
                 "`" + searchString + "´" );
         }
     }
+    
+    /**
+     * reproduce primeros minutos de las canciones 
+     * que contienen en el titulo el texto pasado por parametro
+     */
+    public void playFirstSecond(String autorName)
+    {
+      boolean contain = false;
+        for (String filename : files)
+        {
+            if (filename.contains(autorName))
+            {
+                this.player.playSample(filename);
+                contain = true;
+            }
+        }
+        
+        if (!contain)
+        {
+            System.out.println("Error, no se a encontrado ninguna cnación de " + 
+                "`" + autorName + "´" );
+        }  
+        
+    }
 
 }
