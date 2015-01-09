@@ -82,7 +82,7 @@ public class MusicOrganizer
     {
         player.stop();
     }
-    
+
     /**
      * realiza una impresion del listado de las canciones guardadas
      */
@@ -95,20 +95,27 @@ public class MusicOrganizer
             count++;
         }
     }
-    
+
     /**
      * 
      */
     public void listMaching(String searchString)
     {
+        boolean contain = false;
         for (String filename : files)
         {
             if (filename.contains(searchString))
             {
                 System.out.println(filename);
+                contain = true;
             }
-            
+        }
+        
+        if (!contain)
+        {
+            System.out.println("Error, no se a encontrado ninguna archivo que contenaga " + 
+                "`" + searchString + "´" );
         }
     }
-    
+
 }
