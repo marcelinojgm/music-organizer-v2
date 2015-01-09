@@ -95,4 +95,20 @@ public class MusicOrganizer
             count++;
         }
     }
+    
+    /**
+     * 
+     */
+    public void listMaching(String searchString)
+    {
+        for (String filename : files)
+        {
+            if (filename.contains(searchString))
+            {
+                System.out.println(filename);
+            }
+            
+        }
+    }
+    
 }
