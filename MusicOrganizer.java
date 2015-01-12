@@ -88,12 +88,14 @@ public class MusicOrganizer
      */
     public void listAllFiles()
     {
-        int count = 1;
+
+        int index = 1;
         for(String fileName : files)
         {
-            System.out.println(count + ".-" +fileName);
-            count++;
+            System.out.println(index + ".-" +fileName);
+            index++;
         }
+
     }
 
     /**
@@ -110,21 +112,21 @@ public class MusicOrganizer
                 contain = true;
             }
         }
-        
+
         if (!contain)
         {
             System.out.println("Error, no se a encontrado ninguna archivo que contenaga " + 
                 "`" + searchString + "´" );
         }
     }
-    
+
     /**
      * reproduce primeros minutos de las canciones 
      * que contienen en el titulo el texto pasado por parametro
      */
     public void playFirstSecond(String autorName)
     {
-      boolean contain = false;
+        boolean contain = false;
         for (String filename : files)
         {
             if (filename.contains(autorName))
@@ -133,13 +135,34 @@ public class MusicOrganizer
                 contain = true;
             }
         }
-        
+
         if (!contain)
         {
             System.out.println("Error, no se a encontrado ninguna cnación de " + 
                 "`" + autorName + "´" );
         }  
-        
+
+    }
+    /**
+     * retorna la indice del primer archivo 
+     * que contenga la cadena pasada por parametro
+     */
+    
+    public int findFirst(String nameFile)
+    {
+        boolean found = false;
+        int find = -1;
+        int index = 0;
+        while (!found && index < files.size())
+        {
+            if(this.files.get(index).contains(nameFile))
+            {
+                found = true;
+                find = index;
+            }
+            index++;
+        }
+        return find;
     }
 
 }
