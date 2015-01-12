@@ -153,7 +153,8 @@ public class MusicOrganizer
         boolean found = false;
         int find = -1;
         int index = 0;
-        while (!found && index < files.size())
+        int size = files.size();
+        while (!found && index < size)
         {
             if(this.files.get(index).contains(nameFile))
             {
